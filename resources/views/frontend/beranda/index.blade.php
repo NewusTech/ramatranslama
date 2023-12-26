@@ -155,174 +155,64 @@
                         </div>
                     </div>
                     @if ($layanan->count())
-                        <div class="row">
-                            <div class="newus-rute-column col-lg-12 col-md-12 col-12">
+                        <div class="row section-home available-car">
+                            <div>
                                 @foreach ($layanan as $layanans)
-                                    <div class="cover-card-rute col-lg-12">
-
-                                        <div style="padding: 0 0 0 0;" id="newus-card-rute" class="col-md-12">
-                                            <div class="recom-item border">
-                                                <div class="card-rute">
-                                                    <span class="text-header">
-                                                        <h6 style="color: white;" class="blog-title">
-                                                            <a
-                                                                href="{{ route('detail-jasa-transportasi.jasaId', $layanans->slug) }}">
-                                                                {{ $layanans->title }}
-                                                            </a>
-                                                        </h6>
-                                                    </span>
+                                    <div class="col-md-4 col-sm-12 mb-1"
+                                        style="border: 1px solid #ebeaea; border-radius: 2px; overflow: hidden; padding: 10px">
+                                        <div class="acr-box">
+                                            <div class="acr-box-in">
+                                                <div class="acr-img">
+                                                    <img src="{{ Storage::disk('s3')->url($layanans->image) }}"
+                                                        alt="you might like">
                                                 </div>
-                                                <div id="recom-media">
-                                                    <a
-                                                        href="{{ route('detail-jasa-transportasi.jasaId', $layanans->slug) }}">
-                                                        <div class="pic">
-                                                            <img loading="lazy" class="lazy-load"
-                                                                data-src="{{ Storage::disk('s3')->url($layanans->image) }}"
-                                                                alt="layanan">
+                                                <div class="acr-content">
+                                                    <div class="ct-name">{{ $layanans->title }}</div>
+                                                    <div class="ct-cost">
+                                                        <div class="jadwal-jemput">
+                                                            <h4>Jadwal Jemput</h4>
+                                                            <table class="tabel-jadwal-jemput">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>PAGI</td>
+                                                                        <td>:</td>
+                                                                        <td>{{ $layanans->jam_pagi ? $layanans->jam_pagi : '-' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>SIANG</td>
+                                                                        <td>:</td>
+                                                                        <td>{{ $layanans->jam_siang ? $layanans->jam_siang : '-' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>SORE</td>
+                                                                        <td>:</td>
+                                                                        <td>{{ $layanans->jam_sore ? $layanans->jam_sore : '-' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>MALAM</td>
+                                                                        <td>:</td>
+                                                                        <td>{{ $layanans->jam_malam ? $layanans->jam_malam : '-' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                    </a>
-                                                    <div class="location"><i
-                                                            class="flaticon-suntour-map"></i>&nbsp;{{ $layanans->asal }}
+                                                    </div>
+
+                                                    <div class="ct-reserve">
+                                                        <a class="btn btn-primary details-button text-white"
+                                                            data-toggle="modal" data-item="{{ $layanans }}"
+                                                            data-target="#modalBookingIndex">Pesan</a>
                                                     </div>
                                                 </div>
-                                                <div class="recom-item-body">
-                                                    <div class="jadwal-jemput">
-                                                        <h4>Jadwal Jemputan</h4>
-                                                        <table class="tabel-jadwal-jemput">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>PAGI</td>
-                                                                    <td>:</td>
-                                                                    <td>{{ $layanans->jam_pagi ? $layanans->jam_pagi : '-' }}
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>SIANG</td>
-                                                                    <td>:</td>
-                                                                    <td>{{ $layanans->jam_siang ? $layanans->jam_siang : '-' }}
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>SORE</td>
-                                                                    <td>:</td>
-                                                                    <td>{{ $layanans->jam_sore ? $layanans->jam_sore : '-' }}
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>MALAM</td>
-                                                                    <td>:</td>
-                                                                    <td>{{ $layanans->jam_malam ? $layanans->jam_malam : '-' }}
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <a class="cws-button btn-newus small alt details-button"
-                                                        data-toggle="modal" data-item="{{ $layanans }}"
-                                                        data-target="#modalBookingIndex">
-                                                        Pesan
-                                                    </a>
-                                                </div>
+                                            </div>
+                                            <div class="acr-bg">
+                                                <img src="{{ Storage::disk('s3')->url($layanans->image) }}">
                                             </div>
                                         </div>
-
-                                        {{-- modal --}}
-                                        {{-- <div class="modal fade" id="modalBookingIndex-{{ $layanans->id }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Booking
-                                                            #{{ $layanans->title }}</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">×</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div id="msgError" class="alert alert-danger"
-                                                            style="display:none">
-                                                        </div>
-                                                        <form action="{{ url('order-store') }}" method="POST">
-                                                            @csrf
-                                                            <div class="form-group">
-                                                                <label>Name</label>
-                                                                <input type="text" placeholder="Ibrahim"
-                                                                    id="namePenumpang-{{ $layanans->id }}"
-                                                                    class="form-control" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>No. Hp</label>
-                                                                <input type="number" placeholder="087987654321"
-                                                                    id="no_hp-{{ $layanans->id }}"
-                                                                    class="form-control newus-form-number" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Tanggal</label>
-                                                                <input type="date"
-                                                                    id="tgl_keberangkatan-{{ $layanans->id }}"
-                                                                    class="form-control" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Waktu</label>
-                                                                <select id="waktu-{{ $layanans->id }}"
-                                                                    class="form-control">
-                                                                    <option value="" disabled selected>--Pilih
-                                                                        Waktu--</option>
-                                                                    @if (isset($layanans->jam_pagi))
-                                                                        <option value="{{ $layanans->jam_pagi }}">
-                                                                            {{ $layanans->jam_pagi }}
-                                                                        </option>
-                                                                    @endif
-                                                                    @if (isset($layanans->jam_siang))
-                                                                        <option value="{{ $layanans->jam_siang }}">
-                                                                            {{ $layanans->jam_siang }}
-                                                                        </option>
-                                                                    @endif
-                                                                    @if (isset($layanans->jam_sore))
-                                                                        <option value="{{ $layanans->jam_sore }}">
-                                                                            {{ $layanans->jam_sore }}
-                                                                        </option>
-                                                                    @endif
-                                                                    @if (isset($layanans->jam_malam))
-                                                                        <option value="{{ $layanans->jam_malam }}">
-                                                                            {{ $layanans->jam_malam }}
-                                                                        </option>
-                                                                    @endif
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Rute</label>
-                                                                <input type="text" id="rute-{{ $layanans->id }}"
-                                                                    value="{{ $layanans->title }}" readonly
-                                                                    class="form-control" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Tempat Duduk</label>
-                                                                <input type="text" placeholder="Contoh : 1 Orang"
-                                                                    id="tempat_duduk-{{ $layanans->id }}"
-                                                                    class="form-control" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Titik Jemput</label>
-                                                                <input type="text"
-                                                                    id="titik_jemput-{{ $layanans->id }}"
-                                                                    placeholder="Permata Kost - Jl. Swakarya 1 no. H-28A Rt. 09 RW 02 Dwikora II"
-                                                                    class="form-control" />
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger"
-                                                            data-dismiss="modal"
-                                                            onclick="resetBookingIndex()">Close</button>
-                                                        <button type="button" class="btn btn-success"
-                                                            onclick="formSubmitIndex({{ $layanans->id }}, 'https://api.whatsapp.com/send?phone={{ $layanans && substr($layanans->wa, 0, 2) == '08' ? '62' . substr($layanans->wa, 1) : $layanans->wa }}')">Pesan</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-                                        {{-- end modal --}}
                                     </div>
                                 @endforeach
                             </div>
@@ -720,7 +610,7 @@
                 tujuanSelect.selectedIndex = 0;
                 $(tujuanSelect).change();
 
-                fetch_data();
+                // fetch_data();
             });
 
             $('#clearAsal').on('click', function() {
@@ -728,7 +618,7 @@
                 asalSelect.selectedIndex = 0;
                 $(asalSelect).change();
 
-                fetch_data();
+                // fetch_data();
             });
 
             $('#clearJam').on('click', function() {
@@ -739,15 +629,15 @@
             });
 
             asalSelect.addEventListener('change', function() {
-                fetch_data();
+                // fetch_data();
             });
 
             tujuanSelect.addEventListener('change', function() {
-                fetch_data();
+                // fetch_data();
             });
 
             jamSelect.addEventListener('change', function() {
-                fetch_data();
+                // fetch_data();
             });
 
         });

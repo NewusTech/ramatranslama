@@ -39,6 +39,11 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    @if (env('APP_NAME') == 'Rama Tranz Lampung')
+        <meta name="google-site-verification" content="rOCh2hnWmrjip9YyztQKyTegoYeP-kZZmoZe42ACi6s" />
+    @else
+        <meta name="google-site-verification" content="Q580w3nOJMhY0_i5N7qCULKN-xhifRIZ98fB9ar2ce8" />
+    @endif
     {{-- meta syukron488@gmail.com --}}
     <title>
         @if (trim($__env->yieldContent('title')))
