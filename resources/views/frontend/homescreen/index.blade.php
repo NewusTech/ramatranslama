@@ -36,6 +36,7 @@
         </script>
     @endif
     {{-- End Analytics --}}
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -74,13 +75,18 @@
     <!-- End Google tag -->
     {{-- Search console --}}
     @if (isset($searchConsole))
-        <meta name="google-site-verification" content="{{ $searchConsole->content }}" />
+        {{-- <meta name="google-site-verification" content="{{ $searchConsole->content }}" /> --}}
     @endif
     {{-- end Search --}}
     {{-- meta syukron488@gmail.com --}}
+    @if (env('APP_NAME') == 'Rama Tranz Lampung')
+        <meta name="google-site-verification" content="rOCh2hnWmrjip9YyztQKyTegoYeP-kZZmoZe42ACi6s" />
+    @else
+        <meta name="google-site-verification" content="Q580w3nOJMhY0_i5N7qCULKN-xhifRIZ98fB9ar2ce8" />
+    @endif
     <title>Travel Jakarta-Lampung Termurah dan Terpercaya</title>
     <meta name="description"
-        content="Rama Tranz Lampung melayani perjalanan dari Jakarta, Bogor, Depok, Bekasi, Tangerang, Lampung, dan Palembang">
+        content="{{ env('APP_NAME', 'Default Name') }} melayani perjalanan dari Jakarta, Bogor, Depok, Bekasi, Tangerang, Lampung, dan Palembang">
     {{-- content="{{ isset($dataSeo) ? $dataSeo['description'] : 'Travel jakarta lampung - Travel lampung - jakarta' }}"> --}}
     <meta name="keywords" content="{{ isset($dataSeo) ? $dataSeo['keywords'] : 'travel jakarta lampung' }}">
     <meta name="author" content="Rama Tranz Travel">

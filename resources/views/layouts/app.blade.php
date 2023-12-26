@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>{{ config('app.name', 'Pasar Kredit Murah lampung') }}</title>
+    @if (env('APP_NAME') == 'Rama Tranz Lampung')
+        <meta name="google-site-verification" content="rOCh2hnWmrjip9YyztQKyTegoYeP-kZZmoZe42ACi6s" />
+    @else
+        <meta name="google-site-verification" content="Q580w3nOJMhY0_i5N7qCULKN-xhifRIZ98fB9ar2ce8" />
+    @endif
 
     <!-- General CSS Files -->
 

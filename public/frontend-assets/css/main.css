@@ -17332,3 +17332,157 @@ p.error:before {
         transform: translateX(-20%);
     }
 }
+
+/* HOMEPAGE AVAILABLE CAR */
+.available-car {
+    padding: 15px 0px;
+    position: relative;
+  }
+  
+  .available-car .heading-section .sa-title {
+    width: 100% !important;
+  }
+  
+  .available-car .slick-track {
+    margin: 0px 0px;
+  }
+  
+  .available-car .slick-prev {
+    right: 35px;
+    z-index: 3;
+    top: 90%;
+    left: auto;
+  }
+  
+  .available-car .slick-next {
+    right: 10px;
+    z-index: 3;
+    top: 90%;
+  }
+  
+  .available-car .slick-prev:before,
+  .available-car .slick-next:before {
+    color: #2450a6;
+  }
+  
+  .available-car .acr-box {
+    background-color: #ffffff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 15px;
+    width: 300px;
+    position: relative;
+  }
+  
+  .available-car .acr-box .acr-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+  }
+  
+  .available-car .acr-box .acr-bg img {
+    width: 100%;
+    height: auto;
+    max-height: 9999999px;
+    opacity: 0.1;
+    position: absolute;
+    bottom: 0px;
+  }
+  
+  .available-car .acr-box .acr-box-in {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    height: 182px;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content {
+    padding: 15px 15px;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-name {    
+    font-size: 14px;
+    color: #2450a6;
+    font-weight: 600;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-cost .cprice {
+    font-size: 24px;
+    font-weight: 600;
+    color: #df9403;
+    display: block;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-cost .jadwal-jemput h4 {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  
+  .tabel-jadwal-jemput td{
+    font-size: 10px;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-cost .perday {
+    position: relative;
+    top: -5px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-info {
+    padding: 10px 0px 0px;
+    position: relative;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-info ul {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    display: inline-block;
+    float: left;
+    padding: 0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-info ul li {
+    padding: 0px 5px 0px 0px;
+    display: inline-block;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-info ul li img {
+    width: 20px;
+    height: auto;
+    display: inline;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-content .ct-reserve {
+    display: block;
+    clear: both;
+    position: absolute;
+    bottom: 10px;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-img {
+    width: 180px;
+    float: right;
+    margin-right: -40px;
+    margin-top: 40px;
+    position: absolute;
+    right: 0px;
+  }
+  
+  .available-car .acr-box .acr-box-in .acr-img img {
+    width: 100%;
+    border-radius: 0px 0px 0px 10px;
+  }

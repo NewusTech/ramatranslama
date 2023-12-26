@@ -86,69 +86,59 @@
 
 @if ($layanan->count())
     <div class="row">
-        <div class="newus-rute-column col-lg-12 col-md-12 col-12">
+        <div>
             @foreach ($layanan as $layanans)
-                <div class="cover-card-rute col-lg-12">
-
-                    <div style="padding: 0 0 0 0;" id="newus-card-rute" class="col-md-12">
-                        <div class="recom-item border">
-                            <div class="card-rute">
-                                <span class="text-header">
-                                    <h6 style="color: white;" class="blog-title">
-                                        <a href="{{ route('detail-jasa-transportasi.jasaId', $layanans->slug) }}">
-                                            {{ $layanans->title }}
-                                        </a>
-                                    </h6>
-                                </span>
+                <div class="col-md-4 col-sm-12 mb-1"
+                    style="border: 1px solid #ebeaea; border-radius: 2px; overflow: hidden; padding: 10px">
+                    <div class="acr-box">
+                        <div class="acr-box-in">
+                            <div class="acr-img">
+                                <img src="{{ Storage::disk('s3')->url($layanans->image) }}" alt="you might like">
                             </div>
-                            <div id="recom-media">
-                                <a href="{{ route('detail-jasa-transportasi.jasaId', $layanans->slug) }}">
-                                    <div class="pic">
-                                        <img src="{{ Storage::disk('s3')->url($layanans->image) }}"
-                                            data-at2x="{{ Storage::disk('s3')->url($layanans->image) }}"
-                                            alt="">
+                            <div class="acr-content">
+                                <div class="ct-name">{{ $layanans->title }}</div>
+                                <div class="ct-cost">
+                                    <div class="jadwal-jemput">
+                                        <h4>Jadwal Jemput</h4>
+                                        <table class="tabel-jadwal-jemput">
+                                            <tbody>
+                                                <tr>
+                                                    <td>PAGI</td>
+                                                    <td>:</td>
+                                                    <td>{{ $layanans->jam_pagi ? $layanans->jam_pagi : '-' }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SIANG</td>
+                                                    <td>:</td>
+                                                    <td>{{ $layanans->jam_siang ? $layanans->jam_siang : '-' }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SORE</td>
+                                                    <td>:</td>
+                                                    <td>{{ $layanans->jam_sore ? $layanans->jam_sore : '-' }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>MALAM</td>
+                                                    <td>:</td>
+                                                    <td>{{ $layanans->jam_malam ? $layanans->jam_malam : '-' }}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </a>
-                                <div class="location"><i class="flaticon-suntour-map"></i>&nbsp;{{ $layanans->asal }}
+                                </div>
+
+                                <div class="ct-reserve">
+                                    <a class="btn btn-primary details-button text-white" data-toggle="modal"
+                                        data-item="{{ $layanans }}" data-target="#modalBookingIndex">Pesan</a>
                                 </div>
                             </div>
-                            <div class="recom-item-body">
-                                <div class="jadwal-jemput">
-                                    <h4>Jadwal Jemputan</h4>
-                                    <table class="tabel-jadwal-jemput">
-                                        <tbody>
-                                            <tr>
-                                                <td>PAGI</td>
-                                                <td>:</td>
-                                                <td>{{ $layanans->jam_pagi ? $layanans->jam_pagi : '-' }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>SIANG</td>
-                                                <td>:</td>
-                                                <td>{{ $layanans->jam_siang ? $layanans->jam_siang : '-' }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>SORE</td>
-                                                <td>:</td>
-                                                <td>{{ $layanans->jam_sore ? $layanans->jam_sore : '-' }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>MALAM</td>
-                                                <td>:</td>
-                                                <td>{{ $layanans->jam_malam ? $layanans->jam_malam : '-' }}
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <a class="cws-button btn-newus small alt details-button" data-toggle="modal"
-                                    data-item="{{ $layanans }}" data-target="#modalBookingIndex">
-                                    Pesan
-                                </a>
-                            </div>
+                        </div>
+                        <div class="acr-bg">
+                            <img src="{{ Storage::disk('s3')->url($layanans->image) }}">
                         </div>
                     </div>
                 </div>
