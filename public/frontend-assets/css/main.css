@@ -6458,7 +6458,7 @@ nav .inner-nav.mobile_nav.opened ul {
 /*  */
 /* Recomended items */
 /*  */
-table.tabel-jadwal-jemput tr td {
+/* table.tabel-jadwal-jemput tr td {
     padding-left: 2px
 }
 .jadwal-jemput{
@@ -6473,7 +6473,7 @@ table.tabel-jadwal-jemput tr td {
 
 .jadwal-jemputs p{
     white-space: pre;
-}
+} */
 .recom-item {
     position: relative;
     z-index: 1;
@@ -17372,7 +17372,7 @@ p.error:before {
     border-radius: 10px;
     overflow: hidden;
     margin-left: 15px;
-    width: 300px;
+    width: 92%;
     position: relative;
   }
   
@@ -17405,7 +17405,10 @@ p.error:before {
   }
   
   .available-car .acr-box .acr-box-in .acr-content {
-    padding: 15px 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
     width: 100%;
     height: 100%;
   }
@@ -17426,6 +17429,7 @@ p.error:before {
   .available-car .acr-box .acr-box-in .acr-content .ct-cost .jadwal-jemput h4 {
     font-size: 12px;
     margin-bottom: 2px;
+    margin-top: 3px;
   }
   
   .tabel-jadwal-jemput td{
@@ -17470,7 +17474,8 @@ p.error:before {
     display: block;
     clear: both;
     position: absolute;
-    bottom: 10px;
+    /* padding-top: 10px; */
+    bottom: 5px;
   }
   
   .available-car .acr-box .acr-box-in .acr-img {
