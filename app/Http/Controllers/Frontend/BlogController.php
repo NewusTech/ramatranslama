@@ -38,7 +38,7 @@ class BlogController extends Controller
     {
         $query = $request->input('query');
         $title2 = $request->input('page');
-        $blogs = Blog::where('title', 'LIKE', "%$query%")
+        $blogs = Blog::latest()->where('title', 'LIKE', "%$query%")
             ->orWhere('excerpt', 'LIKE', "%$query%")
             ->paginate(9);
 
