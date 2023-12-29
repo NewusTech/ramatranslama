@@ -22,7 +22,7 @@ class BlogController extends Controller
         $data['type'] = 'Home Screen';
         $data['url'] = URL::current();
 
-        $blogs = Blog::latest()->paginate(9)->withQueryString();
+        $blogs = Blog::latest()->where('status', '=', 'Publish')->paginate(9)->withQueryString();        
         $menuLayanan = JenisLayanan::select(['id', 'title', 'slug'])->orderBy('slug', 'ASC')->get();
         $contacts = Kontak::where('id', 1)->first();
         $tentang = Page::get()->first();
@@ -38,9 +38,12 @@ class BlogController extends Controller
     {
         $query = $request->input('query');
         $title2 = $request->input('page');
-        $blogs = Blog::latest()->where('title', 'LIKE', "%$query%")
-            ->orWhere('excerpt', 'LIKE', "%$query%")
-            ->paginate(9);
+        $blogs = Blog::where('status', '=', 'Publish')
+        ->where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('title', 'LIKE', "%$query%")
+                ->orWhere('excerpt', 'LIKE', "%$query%");
+        })
+        ->paginate(9);
 
         return view('frontend.blog.blog-list', compact('blogs', 'title2'));
     }
