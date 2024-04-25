@@ -48,6 +48,7 @@ class HomeController extends Controller
         $searchConsole = SearchConsole::first();
         $gtagManager = GtagManager::first();
         $analytics = Analytics::first();
+        
         return view('frontend.homescreen.index', compact('data','dataLanding','tagManager','dataSeo','searchConsole','gtagManager','analytics'));
     }
 
@@ -58,7 +59,7 @@ class HomeController extends Controller
         $data['intro'] = 'Rama Trans adalah jasa Transportasi Terbaik.';
         $data['type'] = 'Beranda';
         $data['url'] = URL::current();
-        $metades = "Rama Tranz Travel adalah agen perjalanan  yang terbaik dan terpercaya. Lebih dari 11 tahun melayani para pelanggan dengan pelayanan yang terbaik.";
+        $metades = env('APP_NAME', 'Default Name') . " adalah agen perjalanan  yang terbaik dan terpercaya. Lebih dari 11 tahun melayani para pelanggan dengan pelayanan yang terbaik.";
 
         $layananTarif = Layanan::take(6)->latest()->get();
         $jenisLayanan = JenisLayanan::select(['jenis_layanans.id', 'jenis_layanans.title', 'jenis_layanans.slug','jenis_layanans.media', 'layanans.image'])

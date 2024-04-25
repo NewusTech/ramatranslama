@@ -89,9 +89,9 @@
         content="{{ env('APP_NAME', 'Default Name') }} melayani perjalanan dari Jakarta, Bogor, Depok, Bekasi, Tangerang, Lampung, dan Palembang">
     {{-- content="{{ isset($dataSeo) ? $dataSeo['description'] : 'Travel jakarta lampung - Travel lampung - jakarta' }}"> --}}
     <meta name="keywords" content="{{ isset($dataSeo) ? $dataSeo['keywords'] : 'travel jakarta lampung' }}">
-    <meta name="author" content="Rama Tranz Travel">
+    <meta name="author" content="{{ env('APP_NAME', 'Default Name') }}">
     <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="{{ isset($dataSeo) ? $dataSeo['site_title'] : 'Rama Tranz Travel' }}">
+    <meta property="og:site_name" content="{{ env('APP_NAME', 'Default Name') }}">
     <meta property="og:image"
         content="{{ isset($dataSeo) ? Storage::disk('public')->url($dataSeo['image']) : 'https://ramatranzlampung.com/frontend-assets/img/logo-1.png' }} ">
     <meta property="og:image:width" content="240">
@@ -102,10 +102,11 @@
         content="{{ isset($dataSeo) ? $dataSeo['description'] : 'Travel jakarta lampung - Travel lampung - jakarta' }}">
     <meta property="fb:app_id" content="">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="{{ isset($dataSeo) ? $dataSeo['site_title'] : 'Rama Tranz Travel' }}">
-    <meta name="twitter:title" content="{{ isset($dataSeo) ? $dataSeo['title'] : 'Travel resmi dan terpercaya' }}">
+    <meta name="twitter:site" content="{{ env('APP_NAME', 'Default Name') }}">
+    <meta name="twitter:title"
+        content="{{ env('APP_NAME', 'Default Name') }} adalah travel yang sangat dapat diandalkan dalam perjalan anda">
     <meta name="twitter:description"
-        content="{{ isset($dataSeo) ? $dataSeo['description'] : 'Travel jakarta lampung - Travel lampung - jakarta' }}">
+        content="{{ isset($seoPage) ? $seoPage->meta_desc : 'Nikmati perjalanan Jakarta-Lampung yang nyaman dan aman bersama ' .  env('APP_NAME', 'Default Name') . ' Pesan tiket sekarang dan jelajahi keindahan kedua destinasi' }}">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title"

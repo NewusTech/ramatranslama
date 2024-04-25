@@ -59,7 +59,7 @@ class LayananController extends Controller
         $menuLayanan = JenisLayanan::select(['id', 'title', 'slug'])->orderBy('slug', 'ASC')->get();
         $contacts = Kontak::where('id', 1)->first();
         $tentang = Page::get()->first();
-        $metades = "Rama Tranz Travel memiliki jenis layanan yang dapat memudahkan para pelanggan. Door to door, point to point, dan charter adalah layanan yang unggul.";
+        $metades = env('APP_NAME', 'Default Name') . " memiliki jenis layanan yang dapat memudahkan para pelanggan. Door to door, point to point, dan charter adalah layanan yang unggul.";
 
         $tagManager = TagManager::first();
         $seoPage = Page::where('slug', '=', 'jadwal')->first();
