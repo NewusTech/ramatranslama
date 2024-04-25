@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@section('title', 'Rama Tranz Lampung Travel Terpercaya, Terbaik, dan Termurah - 1')
+@section('title',env('APP_NAME', 'Default Name') . ' Terpercaya, Terbaik, dan Termurah - 1')
 @section('content')
 
     <div class="content-body">
@@ -158,6 +158,7 @@
                         <div class="row section-home available-car">
                             <div>
                                 @foreach ($layanan as $layanans)
+                                <a href="{{ route('detail-jasa-transportasi.jasaId', $layanans->slug) }}">
                                     <div class="col-md-4 col-sm-12 mb-1"
                                         style="border: 1px solid #ebeaea; border-radius: 2px; overflow: hidden; padding: 10px">
                                         <div class="acr-box">
@@ -214,6 +215,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </a>
                                 @endforeach
                             </div>
                         </div>

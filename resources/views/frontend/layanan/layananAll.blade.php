@@ -147,6 +147,7 @@
                     <div class="row">
                         <div>
                             @foreach ($layanan as $layanans)
+                            <a href="{{ route('detail-jasa-transportasi.jasaId', $layanans->slug) }}" style="display: block;">
                                 <div class="col-md-4 col-sm-12 mb-1"
                                     style="border: 1px solid #ebeaea; border-radius: 2px; overflow: hidden; padding: 10px">
                                     <div class="acr-box">
@@ -203,6 +204,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </a>
                             @endforeach
                         </div>
                     </div>
@@ -374,7 +376,7 @@
                     success: function(data) {
                         $('#layananAll-list').html(data);
                         document.title = "Harga Tiket - " + page +
-                            " dari Rama Tranz Travel Sangat Murah";
+                            " dari Rama Tranz Sangat Murah";
                     }
                 });
             }

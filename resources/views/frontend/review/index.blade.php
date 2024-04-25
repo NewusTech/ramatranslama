@@ -52,14 +52,14 @@
         <meta name="description" content="{{ $metades }}">
     @elseif(isset($seoPage) && isset($seoPage->meta_desc))
         <meta name="description" content="{{ $seoPage->meta_desc }}">
-        {{-- @else
+    @else
         <meta name="description"
-            content="Nikmati perjalanan Jakarta-Lampung yang nyaman dan aman bersama Rama Tranz Travel. Pesan tiket sekarang dan jelajahi keindahan kedua destinasi"> --}}
+            content="Nikmati perjalanan Jakarta-Lampung yang nyaman dan aman bersama {{ env('APP_NAME', 'Default Name') }}. Pesan tiket sekarang dan jelajahi keindahan kedua destinasi"> 
     @endif
     <meta name="keywords" content="{{ isset($dataSeo) ? $dataSeo['keywords'] : 'travel jakarta lampung' }}">
     <meta name="author" content="Rama Tranz Lampung">
     <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="{{ isset($dataSeo) ? $dataSeo['site_title'] : 'Rama Tranz Travel' }}">
+    <meta property="og:site_name" content="{{ env('APP_NAME', 'Default Name') }}">
     @if (trim($__env->yieldContent('image')))
         <meta property="og:image" content="{{ Storage::disk('public')->url('') }}@yield('image') ">
     @else
@@ -70,20 +70,19 @@
     <meta property="og:image:height" content="90">
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="@if (trim($__env->yieldContent('title'))) @yield('title')- @endif {{ isset($dataSeo) ? $dataSeo['site_title'] : 'Rama Tranz Travel' }} - {{ isset($dataSeo) ? $dataSeo['title'] : 'Travel resmi dan terpercaya' }}">
-    <meta property="og:description"
-        content="{{ isset($seoPage) ? $seoPage->meta_desc : 'Nikmati perjalanan Jakarta-Lampung yang nyaman dan aman bersama Rama Tranz Travel. Pesan tiket sekarang dan jelajahi keindahan kedua destinasi' }}">
+        content="@if (trim($__env->yieldContent('title'))) @yield('title')- @endif {{ isset($dataSeo) ? $dataSeo['site_title'] : env('APP_NAME', 'Default Name') }} - {{ isset($dataSeo) ? $dataSeo['title'] : 'Travel resmi dan terpercaya' }}">
+    <meta property="og:description" content="{{ isset($seoPage) ? $seoPage->meta_desc : 'Nikmati perjalanan Jakarta-Lampung yang nyaman dan aman bersama ' . env('APP_NAME', 'Default Name') . '. Pesan tiket sekarang dan jelajahi keindahan kedua destinasi' }}">
+
     <meta property="fb:app_id" content="">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="{{ isset($dataSeo) ? $dataSeo['site_title'] : 'Rama Tranz Travel' }}">
+    <meta name="twitter:site" content="{{ isset($dataSeo) ? $dataSeo['site_title'] : env('APP_NAME', 'Default Name') }}">
     <meta name="twitter:title"
-        content="@if (trim($__env->yieldContent('title'))) @yield('title')- @endif {{ isset($dataSeo) ? $dataSeo['site_title'] : 'Rama Tranz Travel' }} - {{ isset($dataSeo) ? $dataSeo['title'] : 'Travel resmi dan terpercaya' }}">
-    <meta name="twitter:description"
-        content="{{ isset($seoPage) ? $seoPage->meta_desc : 'Nikmati perjalanan Jakarta-Lampung yang nyaman dan aman bersama Rama Tranz Travel. Pesan tiket sekarang dan jelajahi keindahan kedua destinasi' }}">
+        content="@if (trim($__env->yieldContent('title'))) @yield('title')- @endif {{ isset($dataSeo) ? $dataSeo['site_title'] : env('APP_NAME', 'Default Name') }} - {{ isset($dataSeo) ? $dataSeo['title'] : 'Travel resmi dan terpercaya' }}">
+    <meta name="twitter:description" content="{{ isset($seoPage) ? $seoPage->meta_desc : 'Nikmati perjalanan Jakarta-Lampung yang nyaman dan aman bersama ' . env('APP_NAME', 'Default Name') . '. Pesan tiket sekarang dan jelajahi keindahan kedua destinasi' }}">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title"
-        content="@if (trim($__env->yieldContent('title'))) @yield('title')- @endif {{ isset($dataSeo) ? $dataSeo['site_title'] : 'Rama Tranz Travel' }} - {{ isset($dataSeo) ? $dataSeo['title'] : 'Travel resmi dan terpercaya' }}">
+        content="@if (trim($__env->yieldContent('title'))) @yield('title')- @endif {{ isset($dataSeo) ? $dataSeo['site_title'] : env('APP_NAME', 'Default Name') }} - {{ isset($dataSeo) ? $dataSeo['title'] : 'Travel resmi dan terpercaya' }}">
     @if (trim($__env->yieldContent('image')))
         <meta name="msapplication-TileImage" content="{{ Storage::disk('public')->url('') }}@yield('image') ">
     @else
@@ -157,7 +156,8 @@
             <div class="content-body">
                 <div class="container">
                     <h1 class="text-center pt-3" style="font-size: 18px">Penilaian Pelayanan</h1>
-                    <h2 class="text-center" style="font-size: 18px">Rama Tranz Travel</h2>
+                    <h2 class="text-center" style="font-size: 18px">{{ env('APP_NAME', 'Default Name') }}</h2>
+
                     <p style="display: none;">
                         1. Kemudahan dan Kenyamanan
 

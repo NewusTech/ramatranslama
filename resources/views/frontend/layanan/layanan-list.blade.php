@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Harga Tiket - {{ $title2 }} dari {!! env('APP_NAME', 'Default Name') !!} Sangat Murah</title>
-    <meta name="author" content="Rama Tranz Travel">
+    <meta name="author" content="{{ env('APP_NAME', 'Default Name') }}">
     <meta name="description"
         content='{{ env('APP_NAME', 'Default Name') }} adalah Jasa Travel Terbaik dan Ternyaman, Lihat Rute ke {{ $title2 }}'>
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('frontend-assets') }}/favicon/apple-icon-57x57.png">
@@ -88,60 +88,62 @@
     <div class="row">
         <div>
             @foreach ($layanan as $layanans)
-                <div class="col-md-4 col-sm-12 mb-1"
-                    style="border: 1px solid #ebeaea; border-radius: 2px; overflow: hidden; padding: 10px">
-                    <div class="acr-box">
-                        <div class="acr-box-in">
-                            <div class="acr-img">
-                                <img src="{{ Storage::disk('s3')->url($layanans->image) }}" alt="you might like">
-                            </div>
-                            <div class="acr-content">
-                                <div class="ct-name">{{ $layanans->title }}</div>
-                                <div class="ct-cost">
-                                    <div class="jadwal-jemput">
-                                        <h4>Jadwal Jemput</h4>
-                                        <table class="tabel-jadwal-jemput">
-                                            <tbody>
-                                                <tr>
-                                                    <td>PAGI</td>
-                                                    <td>:</td>
-                                                    <td>{{ $layanans->jam_pagi ? $layanans->jam_pagi : '-' }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>SIANG</td>
-                                                    <td>:</td>
-                                                    <td>{{ $layanans->jam_siang ? $layanans->jam_siang : '-' }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>SORE</td>
-                                                    <td>:</td>
-                                                    <td>{{ $layanans->jam_sore ? $layanans->jam_sore : '-' }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>MALAM</td>
-                                                    <td>:</td>
-                                                    <td>{{ $layanans->jam_malam ? $layanans->jam_malam : '-' }}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                <a href="{{ route('detail-jasa-transportasi.jasaId', $layanans->slug) }}">
+                    <div class="col-md-4 col-sm-12 mb-1"
+                        style="border: 1px solid #ebeaea; border-radius: 2px; overflow: hidden; padding: 10px">
+                        <div class="acr-box">
+                            <div class="acr-box-in">
+                                <div class="acr-img">
+                                    <img src="{{ Storage::disk('s3')->url($layanans->image) }}" alt="you might like">
+                                </div>
+                                <div class="acr-content">
+                                    <div class="ct-name">{{ $layanans->title }}</div>
+                                    <div class="ct-cost">
+                                        <div class="jadwal-jemput">
+                                            <h4>Jadwal Jemput</h4>
+                                            <table class="tabel-jadwal-jemput">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>PAGI</td>
+                                                        <td>:</td>
+                                                        <td>{{ $layanans->jam_pagi ? $layanans->jam_pagi : '-' }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>SIANG</td>
+                                                        <td>:</td>
+                                                        <td>{{ $layanans->jam_siang ? $layanans->jam_siang : '-' }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>SORE</td>
+                                                        <td>:</td>
+                                                        <td>{{ $layanans->jam_sore ? $layanans->jam_sore : '-' }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>MALAM</td>
+                                                        <td>:</td>
+                                                        <td>{{ $layanans->jam_malam ? $layanans->jam_malam : '-' }}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="ct-reserve">
+                                        <a class="btn btn-primary details-button text-white" data-toggle="modal"
+                                            data-item="{{ $layanans }}" data-target="#modalBookingIndex">Pesan</a>
                                     </div>
                                 </div>
-
-                                <div class="ct-reserve">
-                                    <a class="btn btn-primary details-button text-white" data-toggle="modal"
-                                        data-item="{{ $layanans }}" data-target="#modalBookingIndex">Pesan</a>
-                                </div>
+                            </div>
+                            <div class="acr-bg">
+                                <img src="{{ Storage::disk('s3')->url($layanans->image) }}">
                             </div>
                         </div>
-                        <div class="acr-bg">
-                            <img src="{{ Storage::disk('s3')->url($layanans->image) }}">
-                        </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>
