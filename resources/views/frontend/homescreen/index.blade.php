@@ -141,8 +141,12 @@
             </div> --}}
         </header>
 
-        {{-- <video src="{{ url('frontend-assets/pic/flexslider/bg-video.mp4') }}" autoplay loop muted></video> --}}
-        <img class="background-image" src="{{ url('frontend-assets/img/bg-landing.jpg') }}" alt="Background Image">
+        <!-- {{-- <video src="{{ url('frontend-assets/pic/flexslider/bg-video.mp4') }}" autoplay loop muted></video> --}} -->
+        <img class="background-image" src="@if (env('APP_NAME') == 'Rama Tranz Lampung')
+        {{ url('frontend-assets/img/bg-landing.jpg') }}
+    @else
+        {{ url('frontend-assets/img/travel.jpg') }}
+    @endif" alt="Background Image">
 
         <div class="overlay"></div>
 
