@@ -14,7 +14,7 @@
                         </a>
                     </div>
                 </div>
-                <p class="color-g2 mt-10">{!! $tentang->short_description !!}</p>
+                <!-- <p class="color-g2 mt-10">{!! $tentang->short_description !!}</p> -->
                 <p class="color-g2 mt-10">{{ company_config('tentang') }}</p>
                 <!-- social-->
                 <div class="social-link dark">
@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <p>© Copyright {{ date('Y') }} <span class="text-uppercase">RamaTranz</span>
+                    <p>© Copyright {{ date('Y') }} <span class="text-uppercase">RamaTranz </span>by <a href="https://newus.id/" rel="tag" class="tag">Newus Technology</a>
                         &nbsp;&nbsp;|&nbsp;&nbsp; All
                         Rights
                         Reserved</p>

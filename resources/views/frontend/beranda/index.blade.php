@@ -572,6 +572,9 @@
             </div>
         </section>
         <!-- ! call out section-->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ehi8DMG4Ci0" allowfullscreen></iframe>
+        </div>
 
     </div>
 
