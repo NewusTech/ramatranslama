@@ -146,17 +146,14 @@
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn
-    @if (env('APP_NAME') == 'Rama Tranz Lampung')
-        
-        btn-primary
-    @else
-        btn-warning
-    @endif
-" style="border: 0; width: 10%;">Cari</button>
-
-
-
-
+                                                    @if (env('APP_NAME') == 'Rama Tranz Lampung')
+                                                        
+                                                        btn-primary
+                                                    @else
+                                                        btn-warning
+                                                    @endif" 
+                                                    style="border: 0; width: 10%;">Cari
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -241,7 +238,12 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md">
-                                        <a href="{{ route('tarif') }}" class="cws-button alt">Selengkapnya</a>
+                                        <a href="{{ route('tarif') }}" class=" btn
+                                                    @if (env('APP_NAME') == 'Rama Tranz Lampung')  
+                                                        btn-warning
+                                                    @else
+                                                    btn-primary  
+                                                    @endif">Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
@@ -418,7 +420,12 @@
                         <div class="cws_divider with-plus short-3 mb-20 mt-10"></div>
                         <p class="mb-20">{!! $tentang->short_description !!}</p>
                         <p class="mb-30">{!! $tentang->content !!}</p>
-                        <a href="{{ route('kontak-kami') }}" class="cws-button alt mt-30 mb-30">Hubungi Kami</a>
+                        <a href="{{ route('kontak-kami') }}" class="btn
+                                                    @if (env('APP_NAME') == 'Rama Tranz Lampung')  
+                                                        btn-warning
+                                                    @else
+                                                    btn-primary  
+                                                    @endif alt mt-30 mb-30">Hubungi Kami</a>
                     </div>
                 </div>
             </div>

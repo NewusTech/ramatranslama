@@ -158,12 +158,13 @@
             {{-- <p>{{$dataLanding->desc}}</p> --}}
             <p>{{ file_get_contents(public_path('static-file/description.txt')) }}</p>
             <a href="{{ route('beranda') }}">Kunjungi Website</a>
+            <a href="{{ route('tarif') }}" 
+                class="btn btn-success" 
+                target="_blank" 
+                style="border-radius: 5px;">
+                    Pesan Sekarang
+            </a>
 
-            {{-- <ul class="social">
-                <li><a href="http://"><img src="" alt="">Instagram</a></li>
-                <li><a href="http://"><img src="" alt="">Instagram</a></li>
-                <li><a href="http://"><img src="" alt="">Instagram</a></li>
-            </ul> --}}
         </div>
 
         <style>
