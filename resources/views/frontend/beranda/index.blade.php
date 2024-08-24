@@ -580,7 +580,7 @@
                     @foreach ($blogs as $blog)
                         <div class="col-md-4 mb-4">
                             <div class="card h-100">
-                                <img src="img/aa.jpeg" class="card-img-top" alt="{{ $blog->title }}">
+                                <img src="{{ Storage::disk('s3')->url($blog->image) }}" class="card-img-top" alt="{{ $blog->title }}">
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title">
                                         <a href="{{ route('detail-blog.blogId', $blog->slug) }}" class="text-primary">
