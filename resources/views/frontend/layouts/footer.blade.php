@@ -1,6 +1,6 @@
 <footer style="background-color: #0f1520" class="footer">
     <div class="container">
-        <div class="row pb-100 pb-md-40">
+        <div class="row pb-40 pb-md-40">
             <!-- widget footer-->
             <div class="col-md-6 col-sm-12 mb-sm-30" data-aos="fade-up" data-aos-duration="500">
                 <div class="logo-soc clearfix">

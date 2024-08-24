@@ -24,7 +24,16 @@
                 </ul>
             </div>
         </div>
-
+        <!-- <div class="tp-banner-container text-center">
+            <div class="card-header">
+                Featured
+            </div>
+            <img src="img/carbgg.jpg" style="width:100%; height:30vh">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+        </div> -->
         <!-- Modal Booking-->
         <div class="modal fade" id="modalBookingIndex" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -92,7 +101,7 @@
         {{-- RUTE --}}
         <section class="newus-rute-index">
             <div class="content-body">
-                <div class="container" style="padding-top: 90px padding-bottom: 12px;">
+                <div class="container" style="padding-bottom: 12px;">
                     <h2 class="title-section mb-5" style="font-size: 20px"><span>Pilih Rute </span>Transportasi</h2>
                     <div class="search-hotels mb-40 pattern">
                         <div class="tours-container">
@@ -243,7 +252,8 @@
                                                         btn-warning
                                                     @else
                                                     btn-primary  
-                                                    @endif">Selengkapnya</a>
+                                                    @endif">Selengkapnya
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +301,6 @@
                                                     <path fill="#633"
                                                         d="M51.976 32.505c.27 2.748-1.735 5.197-4.476 5.47-2.748.274-5.199-1.732-5.476-4.48-.27-2.748 1.735-5.197 4.483-5.47 2.748-.274 5.192 1.733 5.469 4.48M93.976 28.505c.27 2.748-1.735 5.197-4.483 5.47-2.748.273-5.192-1.733-5.469-4.48-.27-2.748 1.735-5.197 4.483-5.47 2.748-.274 5.192 1.733 5.469  4.48M65.03 45.127c2.1-5.726 9.106-6.606 13.113-2.171.408.462-.277 1.204-.725.77-3.981-3.892-9.17-2.951-11.83 1.745-.187.333-.68-.002-.558-.344 "
                                                         transform="translate(161 68)" />
-
                                                 </g>
                                             </g>
                                         </g>
@@ -560,8 +569,46 @@
                 </div>
                 <!-- Swiper JS -->
             </div>
+
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2 class="sa-title popcat">Blog</h2>
+                    <p class="heading-info">Rama Tranz Travel, Melayani travel jakarta lampung</p>
+                </div>
+
+                <div class="row">
+                    @foreach ($blogs as $blog)
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="img/aa.jpeg" class="card-img-top" alt="{{ $blog->title }}">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">
+                                        <a href="{{ route('detail-blog.blogId', $blog->slug) }}" class="text-primary">
+                                            {{ $blog->title }}
+                                        </a>
+                                    </h5>
+                                    <p class="card-text">{{ Str::limit($blog->excerpt, 95, '...') }}</p>
+                                    <a href="{{ route('detail-blog.blogId', $blog->slug) }}" class="btn btn-primary mt-auto">
+                                        Read More
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">{{ $blog->published_at }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="{{ url('/blog') }}" class="btn btn-warning">Selengkapnya</a>
+                </div>
+            </div>
+            <!-- End of Section 4 -->
         </section>
         <!-- ! gallery section-->
+
+       
 
         <!-- gallery section-->
         <section class="small-section" style="padding-top: 0px">
@@ -602,7 +649,7 @@
 
         <!-- call out section-->
         <section class="page-section cws_prlx_section bg-white-80 pb-60 pt-60" 
-    style="
+        style="
         background-color: 
         @if (env('APP_NAME') == 'Rama Tranz Lampung')
             

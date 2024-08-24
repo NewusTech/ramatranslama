@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Analytics;
 use App\Models\Area;
+use App\Models\Blog;
 use App\Models\Carousel;
 use App\Models\Faq;
 use App\Models\Feedback;
@@ -76,6 +77,7 @@ class HomeController extends Controller
         $contacts = Kontak::where('id', 1)->first();
         $faqs = Faq::take(6)->get();
         $parentOutlet = ParentArea::get();
+        $blogs = Blog::latest()->where('status', '=', 'Publish')->paginate(3)->withQueryString();
 		
       	$asals = DB::table('layanans')->select('asal')->distinct()->get()->pluck('asal');
         $tujuans = DB::table('layanans')->select('tujuan')->distinct()->get()->pluck('tujuan');
@@ -102,7 +104,7 @@ class HomeController extends Controller
                                                       'jenisLayanan', 'tentang', 'parentOutlet', 
                                                       'faqs', 'menuLayanan','asals',
                                                       'tujuans', 'jenis_l','jenisLayanan','layanan','tagManager','dataSeo','seoPage',
-                                                      'gtagManager','analytics'
+                                                      'gtagManager','analytics', 'blogs'
                                                      )
                    );
     }
