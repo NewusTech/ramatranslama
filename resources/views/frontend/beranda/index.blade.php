@@ -455,39 +455,39 @@
                     </div>
                 </div>
                 <div class="row">
-    <div class="col-lg-12 col-md-12 col-12">
-        @foreach ($jenisLayanan as $layanan)
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card h-100">
-                    <a href="{{ route('layananCategoryId', $layanan->slug) }}">
-                        <img class="card-img-top" loading="lazy" 
-                             data-src="{{ Storage::disk('s3')->url($layanan->media) }}" 
-                             alt="{{ $layanan->title }}">
-                    </a>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">
-                            <a href="{{ route('layananCategoryId', $layanan->slug) }}" class="text-dark">{{ $layanan->title }}</a>
-                        </h5>
-                        <div class="mt-auto">
-                            <a href="https://api.whatsapp.com/send?phone={{ $hq && substr($hq->phone_1, 0, 2) == '08' ? '62' . substr($hq->phone_1, 1) : $hq->phone_1 }}&text=Hallo%2C%20Saya%20ingin%20memesan%20tiket%20perjalanan%20di%20Rama%20Trans%20Travel.%20Untuk%20pemesanannya%20bagaimana%20ya%3F"
-                               target="_blank" 
-                               class="btn 
-                               @if (env('APP_NAME') == 'Rama Tranz Lampung') 
-                                   btn-primary 
-                               @else 
-                                   btn-warning 
-                               @endif
-                               btn-block">
-                               Pesan
-                            </a>
-                        </div>
+                    <div class="col-lg-12 col-md-12 col-12 d-flex flex-wrap justify-content-between">
+                        @foreach ($jenisLayanan as $layanan)
+                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                                <div class="card" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                                    <a href="{{ route('layananCategoryId', $layanan->slug) }}">
+                                        <img class="card-img-top" loading="lazy" 
+                                            src="{{ Storage::disk('s3')->url($layanan->media) }}" 
+                                            alt="{{ $layanan->title }}" 
+                                            style="border-bottom: 1px solid #ddd;">
+                                    </a>
+                                    <div class="card-body text-center" style="background-color: #f8f9fa; padding: 20px;">
+                                        <p class="card-text" style="font-size: 1rem; font-weight: 500; color: #333;">
+                                            <a href="{{ route('layananCategoryId', $layanan->slug) }}" class="text-dark" style="text-decoration: none;">
+                                                {{ $layanan->title }}
+                                            </a>
+                                        </p>
+                                        <a href="https://api.whatsapp.com/send?phone={{ $hq && substr($hq->phone_1, 0, 2) == '08' ? '62' . substr($hq->phone_1, 1) : $hq->phone_1 }}&text=Hallo%2C%20Saya%20ingin%20memesan%20tiket%20perjalanan%20di%20Rama%20Trans%20Travel.%20Untuk%20pemesanannya%20bagaimana%20ya%3F"
+                                            target="_blank" 
+                                            class="btn 
+                                            @if (env('APP_NAME') == 'Rama Tranz Lampung') 
+                                                btn-primary 
+                                            @else 
+                                                btn-warning 
+                                            @endif"
+                                            style="margin-top: 10px; padding: 10px 20px;">
+                                            Pesan
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
-</div>
-
             </div>
         </section>
         <!-- ! recomended section-->
