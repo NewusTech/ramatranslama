@@ -457,13 +457,14 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12 d-flex flex-wrap justify-content-between">
                         @foreach ($jenisLayanan as $layanan)
-                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4 p-1">
                                 <div class="card" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
                                     <a href="{{ route('layananCategoryId', $layanan->slug) }}">
                                         <img class="card-img-top" loading="lazy" 
                                             src="{{ Storage::disk('s3')->url($layanan->media) }}" 
                                             alt="{{ $layanan->title }}" 
                                             style="border-bottom: 1px solid #ddd;">
+                                            
                                     </a>
                                     <div class="card-body text-center" style="background-color: #f8f9fa; padding: 20px;">
                                         <p class="card-text" style="font-size: 1rem; font-weight: 500; color: #333;">
