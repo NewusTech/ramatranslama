@@ -457,7 +457,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12 d-flex flex-wrap justify-content-between">
                         @foreach ($jenisLayanan as $layanan)
-                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4 p-1">
+                            <div class="col-lg-3 col-md-6 col-sm-12 mb-4 p-5">
                                 <div class="card" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
                                     <a href="{{ route('layananCategoryId', $layanan->slug) }}">
                                         <img class="card-img-top" loading="lazy" 
