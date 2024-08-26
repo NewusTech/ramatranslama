@@ -24,6 +24,7 @@
                 </ul>
             </div>
         </div>
+        
         <!-- <div class="tp-banner-container text-center">
             <div class="card-header">
                 Featured
@@ -34,6 +35,7 @@
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
             </div>
         </div> -->
+
         <!-- Modal Booking-->
         <div class="modal fade" id="modalBookingIndex" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -50,7 +52,7 @@
                         @csrf
                         <div class="modal-body">
                             <div id="msgError" class="alert alert-danger" style="display:none"></div>
-                            {{-- <form> --}}
+                            <!-- {{-- <form> --}} -->
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" placeholder="Nama" id="name" name="name"
@@ -453,47 +455,39 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="newus-rute-column col-lg-12 col-md-12 col-12">
-                        @foreach ($jenisLayanan as $layanan)
-                            <div class="cover-card-rute col-lg-12">
-                                <div style="padding: 0 0 0 0;" id="newus-card-rute" class="bottom col-md-12">
-                                    <div class="recom-item border">
-                                        <div id="recom-media">
-                                            <a href="{{ route('layananCategoryId', $layanan->slug) }}">
-                                                <div class="pic">
-                                                    <img loading="lazy" class="lazy-load"
-                                                        data-src="{{ Storage::disk('s3')->url($layanan->media) }}"
-                                                        alt="jenis layanan">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="recom-item-body">
-                                            <div class="jadwal-jemput">
-                                                <a href="{{ route('layananCategoryId', $layanan->slug) }}">
-                                                    <h6 class="blog-title">{{ $layanan->title }}</h6>
-                                                </a>
-                                            </div>
-                                            <a 
-                                                target="_blank"
-                                                href="https://api.whatsapp.com/send?phone={{ $hq && substr($hq->phone_1, 0, 2) == '08' ? '62' . substr($hq->phone_1, 1) : $hq->phone_1 }}&text=Hallo%2C%20Saya%20ingin%20memesan%20tiket%20perjalanan%20di%20Rama%20Trans%20Travel.%20Untuk%20pemesanannya%20bagaimana%20ya%3F"
-                                                class="cws-button
-                                                 box-bottom small 
-                                                    @if (env('APP_NAME') == 'Rama Tranz Lampung')
-                                                        btn-primary
-                                                    @else
-                                                        
-                                                        btn-warning
-                                                    @endif
-                                                    alt" 
-                                                target="_blank">Pesan
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+    <div class="col-lg-12 col-md-12 col-12">
+        @foreach ($jenisLayanan as $layanan)
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card h-100">
+                    <a href="{{ route('layananCategoryId', $layanan->slug) }}">
+                        <img class="card-img-top" loading="lazy" 
+                             data-src="{{ Storage::disk('s3')->url($layanan->media) }}" 
+                             alt="{{ $layanan->title }}">
+                    </a>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">
+                            <a href="{{ route('layananCategoryId', $layanan->slug) }}" class="text-dark">{{ $layanan->title }}</a>
+                        </h5>
+                        <div class="mt-auto">
+                            <a href="https://api.whatsapp.com/send?phone={{ $hq && substr($hq->phone_1, 0, 2) == '08' ? '62' . substr($hq->phone_1, 1) : $hq->phone_1 }}&text=Hallo%2C%20Saya%20ingin%20memesan%20tiket%20perjalanan%20di%20Rama%20Trans%20Travel.%20Untuk%20pemesanannya%20bagaimana%20ya%3F"
+                               target="_blank" 
+                               class="btn 
+                               @if (env('APP_NAME') == 'Rama Tranz Lampung') 
+                                   btn-primary 
+                               @else 
+                                   btn-warning 
+                               @endif
+                               btn-block">
+                               Pesan
+                            </a>
+                        </div>
                     </div>
                 </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
             </div>
         </section>
         <!-- ! recomended section-->
