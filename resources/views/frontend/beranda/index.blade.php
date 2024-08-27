@@ -163,7 +163,7 @@
                                                     @else
                                                         btn-warning
                                                     @endif" 
-                                                    style="border: 0; width: 10%;">Cari
+                                                    style="border: 0; width: 20%;">Cari
                                                 </button>
                                             </div>
                                         </form>
@@ -636,7 +636,7 @@
                                     </a>
                                 </div>
                                 <div class="card-footer">
-                                    <small class="text-muted">{{ $blog->published_at }}</small>
+                                    <!-- <small class="text-muted">{{ $blog->published_at }}</small> -->
                                 </div>
                             </div>
                         </div>
