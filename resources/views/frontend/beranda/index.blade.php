@@ -474,7 +474,7 @@
                                         </p>
                                         <p class="card-text" style="font-size: 1rem;">
                                             <a href="{{ route('layananCategoryId', $layanan->slug) }}" class="text-dark" style="text-decoration: none;">
-                                            {!! Str::limit($layanan->content, 30) !!}
+                                            Paket unggulan RamaTranz Travel
 
                                             </a>
                                         </p>
