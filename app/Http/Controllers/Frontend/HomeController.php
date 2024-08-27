@@ -82,7 +82,7 @@ class HomeController extends Controller
       	$asals = DB::table('layanans')->select('asal')->distinct()->get()->pluck('asal');
         $tujuans = DB::table('layanans')->select('tujuan')->distinct()->get()->pluck('tujuan');
         $jenis_l = DB::table('layanans')->select('jenis_layanan_id')->distinct()->get()->pluck('jenis_layanan_id');
-        $jenisLayanan = JenisLayanan::select(['id', 'title', 'slug','media'])->get();
+        $jenisLayanan = JenisLayanan::all();
         $layanan = Layanan::latest()->paginate(6)->withQueryString();
         $tagManager = TagManager::first();
         $gtagManager = GtagManager::first();

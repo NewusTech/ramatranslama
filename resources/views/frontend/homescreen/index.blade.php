@@ -137,8 +137,8 @@
                 <h2>{{ file_get_contents(public_path('static-file/header.txt')) }}</h2>
 
             </h2>
-            {{-- <div class="toggle">
-            </div> --}}
+            <!-- {{-- <div class="toggle">
+            </div> --}} -->
         </header>
 
         <!-- {{-- <video src="{{ url('frontend-assets/pic/flexslider/bg-video.mp4') }}" autoplay loop muted></video> --}} -->
@@ -152,18 +152,25 @@
 
         <div class="text">
             {{-- <h2>{{ $dataLanding->title }}</h2> --}}
-            <h2>{{ file_get_contents(public_path('static-file/title.txt')) }}</h2>
+            <!-- <h2>{{ file_get_contents(public_path('static-file/title.txt')) }}</h2> -->
+            <h2>{{env('APP_NAME')}}</h2>
             {{-- <h3>{{ $dataLanding->sub_title }}</h3> --}}
             <h3>{{ file_get_contents(public_path('static-file/subtext.txt')) }}</h3>
             {{-- <p>{{$dataLanding->desc}}</p> --}}
             <p>{{ file_get_contents(public_path('static-file/description.txt')) }}</p>
-            <a href="{{ route('beranda') }}">Kunjungi Website</a>
-            <a href="{{ route('tarif') }}" 
-                class="btn btn-success" 
-                target="_blank" 
-                style="border-radius: 5px;">
-                    Pesan Sekarang
-            </a>
+            <a href="{{ route('beranda') }}" 
+   class="btn btn-link" 
+   style="padding: 5px 10px; border-radius: 5px;">
+    Kunjungi Website
+</a>
+<a href="{{ route('tarif') }}" 
+   class="btn btn-success" 
+   target="_blank" 
+   style="border-radius: 5px; padding: 5px 10px;">
+    Pesan Sekarang
+</a>
+
+
 
         </div>
 

@@ -472,6 +472,12 @@
                                                 {{ $layanan->title }}
                                             </a>
                                         </p>
+                                        <p class="card-text" style="font-size: 1rem;">
+                                            <a href="{{ route('layananCategoryId', $layanan->slug) }}" class="text-dark" style="text-decoration: none;">
+                                            {!! Str::limit($layanan->content, 30) !!}
+
+                                            </a>
+                                        </p>
                                         <a href="https://api.whatsapp.com/send?phone={{ $hq && substr($hq->phone_1, 0, 2) == '08' ? '62' . substr($hq->phone_1, 1) : $hq->phone_1 }}&text=Hallo%2C%20Saya%20ingin%20memesan%20tiket%20perjalanan%20di%20Rama%20Trans%20Travel.%20Untuk%20pemesanannya%20bagaimana%20ya%3F"
                                             target="_blank" 
                                             class="btn 
