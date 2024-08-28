@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="content-body">
+        <!-- slider -->
         <div class="tp-banner-container">
             <div class="tp-banner-slider">
                 <ul>
@@ -24,17 +25,7 @@
                 </ul>
             </div>
         </div>
-        
-        <!-- <div class="tp-banner-container text-center">
-            <div class="card-header">
-                Featured
-            </div>
-            <img src="img/carbgg.jpg" style="width:100%; height:30vh">
-            <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            </div>
-        </div> -->
+        <!-- endslider -->
 
         <!-- Modal Booking-->
         <div class="modal fade" id="modalBookingIndex" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -100,7 +91,7 @@
         </div>
         <!-- End Modal -->
 
-        {{-- RUTE --}}
+        <!-- {{-- RUTE --}} -->
         <section class="newus-rute-index">
             <div class="content-body">
                 <div class="container" style="padding-bottom: 12px;">
@@ -344,7 +335,7 @@
                 </div>
             </div>
         </section>
-        {{-- END RUTE --}}
+        <!-- {{-- END RUTE --}} -->
 
         <!-- page section-->
         <section class="page-section pb-0">
@@ -389,47 +380,48 @@
         </section>
         <!-- ! page section-->
 
+        <!-- page tujuan slider -->
         <div class="container text-center">
-    <h2>Tujuan Populer</h2>
-    <p>Tujuan yang rekomendasi untuk liburan Anda</p>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card" style="overflow: hidden;">
-                <img src="img/monas.jpg" class="card-img-top" alt="Travel Jakarta Lampung" style="transition: transform 0.3s ease, filter 0.3s ease;">
-                <div class="card-body" style="padding-top:5px;">
-                    <p class="card-text">Travel Jakarta Lampung</p>
+            <h2>Tujuan Populer</h2>
+            <p>Tujuan yang rekomendasi untuk liburan Anda</p>
+            <div class="row">
+            @foreach ($carousel2 as $slider)
+                <div class="col-md-3">
+                    <div class="card" style="overflow: hidden;">
+                        <img src="{{ Storage::disk('s3')->url($slider->image) }}" class="card-img-top" alt="Travel Jakarta Lampung" style="transition: transform 0.3s ease, filter 0.3s ease;">
+                        <div class="card-body" style="padding-top:5px;">
+                            <p class="card-text">{{ $slider->title }}</p>
+                        </div>
+                    </div>
                 </div>
+            @endforeach
+                <!-- <div class="col-md-3">
+                    <div class="card" style="overflow: hidden;">
+                        <img src="img/siger.jpg" class="card-img-top" alt="Travel Lampung Jakarta" style="transition: transform 0.3s ease, filter 0.3s ease;">
+                        <div class="card-body" style="padding-top:5px;">
+                            <p class="card-text">Travel Lampung Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="overflow: hidden;">
+                        <img src="img/pt.jpg" class="card-img-top" alt="Travel Lampung Palembang" style="transition: transform 0.3s ease, filter 0.3s ease;">
+                        <div class="card-body" style="padding-top:5px;">
+                            <p class="card-text">Travel Lampung Palembang</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="overflow: hidden;">
+                        <img src="img/plg.jpg" class="card-img-top" alt="Travel Palembang Lampung" style="transition: transform 0.3s ease, filter 0.3s ease;">
+                        <div class="card-body" style="padding-top:5px;">
+                            <p class="card-text">Travel Palembang Lampung</p>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" style="overflow: hidden;">
-                <img src="img/siger.jpg" class="card-img-top" alt="Travel Lampung Jakarta" style="transition: transform 0.3s ease, filter 0.3s ease;">
-                <div class="card-body" style="padding-top:5px;">
-                    <p class="card-text">Travel Lampung Jakarta</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="overflow: hidden;">
-                <img src="img/pt.jpg" class="card-img-top" alt="Travel Lampung Palembang" style="transition: transform 0.3s ease, filter 0.3s ease;">
-                <div class="card-body" style="padding-top:5px;">
-                    <p class="card-text">Travel Lampung Palembang</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" style="overflow: hidden;">
-                <img src="img/plg.jpg" class="card-img-top" alt="Travel Palembang Lampung" style="transition: transform 0.3s ease, filter 0.3s ease;">
-                <div class="card-body" style="padding-top:5px;">
-                    <p class="card-text">Travel Palembang Lampung</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
+        <!-- end tujuan slider -->
 
         <!-- section features-->
         <section class="page-section pb-70 bg-gray-3">
@@ -720,7 +712,6 @@
     </div>
 
 @endsection
-
 
 @section('script')
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>

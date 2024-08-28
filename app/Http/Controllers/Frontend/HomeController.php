@@ -67,7 +67,7 @@ class HomeController extends Controller
             ->leftjoin('layanans', 'layanans.jenis_layanan_id', '=', 'jenis_layanans.id')
             ->orderBy('slug', 'ASC')->get();
         $menuLayanan = JenisLayanan::select(['id', 'title', 'slug'])->orderBy('slug', 'ASC')->get();
-        $carousel = Carousel::get();
+        $carousel = Carousel::orderBy('id', "ASC")->limit(3)->get();
         $hq = Area::where('isHQ', 1)->first();
         $tentang = Page::get()->first();
         $youtube = LinkYoutube::where('id', 1)->first();
@@ -78,7 +78,7 @@ class HomeController extends Controller
         $faqs = Faq::take(6)->get();
         $parentOutlet = ParentArea::get();
         $blogs = Blog::latest()->where('status', '=', 'Publish')->paginate(3)->withQueryString();
-		
+        $carousel2 = Carousel::orderBy('id', "DESC")->limit(3)->get();
       	$asals = DB::table('layanans')->select('asal')->distinct()->get()->pluck('asal');
         $tujuans = DB::table('layanans')->select('tujuan')->distinct()->get()->pluck('tujuan');
         $jenis_l = DB::table('layanans')->select('jenis_layanan_id')->distinct()->get()->pluck('jenis_layanan_id');
@@ -98,7 +98,7 @@ class HomeController extends Controller
         // data seo Home
         $seoPage = Page::where('slug', '=', 'home')->first();
         return view('frontend.beranda.index', compact(
-                                                      'data', 'layananTarif', 'carousel', 
+                                                      'data', 'layananTarif','carousel', 'carousel2', 
                                                       'youtube', 'unggulan', 'feedback', 
                                                       'gallery', 'hq', 'contacts', 'metades',
                                                       'jenisLayanan', 'tentang', 'parentOutlet', 
